@@ -20,12 +20,12 @@ const Listings = (props) => {
         <TableBody>
             {props.listings.map((listing, index) => (
             <TableRow key={listing.id}>
-                <TableCell>{listing.name}Austin Liqour</TableCell>
-                <TableCell>{listing.description}We provide adult beverages</TableCell>
-                <TableCell>{listing.address}1719 East Manor Rd</TableCell>
-                <TableCell>{listing.hours}11am - 11pm</TableCell>
-                <TableCell>{listing.url}austinliqour.com</TableCell>
-                <TableCell>{listing.phone}512-555-5555</TableCell>
+                <TableCell>{listing.name}</TableCell>
+                <TableCell>{listing.description}</TableCell>
+                <TableCell>{listing.address}</TableCell>
+                <TableCell>{listing.hours}</TableCell>
+                <TableCell>{listing.url}</TableCell>
+                <TableCell>{listing.phone}</TableCell>
                 {/* <TableCell><GoogleMap></GoogleMap></TableCell> */}
             </TableRow>
             ))}
