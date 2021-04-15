@@ -1,8 +1,9 @@
 import { Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core"
 import GoogleMap from "./GoogleMap"
+import DeleteIcon from '@material-ui/icons/Delete'
+import { removeListing } from "../redux/actions"
 
-const Listings = (props) => {
-    console.log(props)
+const Listings = ({listings, removeListing, user}) => {
     return (
     <Table>    
         <TableHead>
@@ -18,7 +19,7 @@ const Listings = (props) => {
             </TableRow>
         </TableHead>
         <TableBody>
-            {props.listings.map((listing, index) => (
+            {listings.map((listing, index) => (
             <TableRow key={listing.id}>
                 <TableCell>{listing.name}</TableCell>
                 <TableCell>{listing.description}</TableCell>
@@ -27,9 +28,15 @@ const Listings = (props) => {
                 <TableCell>{listing.url}</TableCell>
                 <TableCell>{listing.phone}</TableCell>
                 {/* <TableCell><GoogleMap></GoogleMap></TableCell> */}
+                {document.cookie === 'loggedIn=true' ?
+                    <TableCell>
+                        <DeleteIcon onClick={() => removeListing(index)}></DeleteIcon>
+                    </TableCell>  :
+                    null
+            }
+                 
             </TableRow>
             ))}
-            
         </TableBody>
     </Table>
     )

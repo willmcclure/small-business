@@ -6,7 +6,7 @@ import { useHistory} from 'react-router'
 
 const AddBusiness = (props) => {
     // const classes = useStyles()
-
+    const history = useHistory()
 
     const [newListing, setNewListing] = useState({
         name: '',
@@ -31,15 +31,24 @@ const AddBusiness = (props) => {
         setNewListing({...newListing, newInput})
     }
 
+    // const addIt = () => {
+    //     newListing.id = props.listings.length
+    //     props.addListing(newListing)
+    //     history.pushState("/")
+    // }
+
     return (
         <div>
+            <br></br><br></br><br></br><br></br><br></br><br></br><br></br>
             <Typography>Add a Business</Typography>
             <TextField onChange={handleInput} value={newListing.name} name='name' label='Business Name'></TextField>
             <TextField onChange={handleInput} value={newListing.description} name='description' label='Description'></TextField>
             <TextField onChange={handleInput} value={newListing.address} name='address' label='Address'></TextField>
             <TextField onChange={handleInput} value={newListing.hours} name='hours' label='Hours of Operation'></TextField>
             <TextField onChange={handleInput} value={newListing.phone} name='phone' label='Phone'></TextField>
-            <Button>SAVE BUSINESS INFO</Button>
+            <Button 
+            // onClick={addIt}
+            >SAVE BUSINESS INFO</Button>
         </div>
     )
 }

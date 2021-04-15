@@ -1,6 +1,6 @@
 import { Switch, Route, Redirect } from 'react-router'
 import cookie from 'cookie'
-// import Login from './containers/Login'
+import Login from './containers/Login'
 import Listings from './containers/Listings'
 import AddBusiness from './containers/AddBusiness'
 import { Component } from 'react'
@@ -23,10 +23,10 @@ const ProtectedRouter = ({component: Component, ...rest}) => {
 const Router = () => {
     return (
         <Switch>
-            {/* <Route path="/login" component={Login} /> */}
+            <Route path="/login" component={Login} />
             <Route exact path ="/" component={Listings} />
             {/* <Route path ="listing/:id" /> */}
-            <Route path="/add"component={AddBusiness} />
+            <ProtectedRouter path="/add"component={AddBusiness} />
         </Switch>
     )
 }
